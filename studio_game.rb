@@ -29,16 +29,31 @@ class Player
 end
 
 player1 = Player.new("moe")
-puts player1
-
 player2 = Player.new("larry", 60)
-puts player2
-
 player3 = Player.new("curly", 125)
-puts player3
-player3.blam
-puts player3
-player3.w00t
-puts player3
-player2.name = "Wally"
-puts player2.score
+
+players = [player1, player2, player3]
+
+players.pop
+
+players << Player.new("shemp")
+
+puts "There are #{players.size} players in the game:"
+players.each do |p|
+  p.blam
+  2.times { p.w00t }
+  puts p
+end
+
+
+
+
+
+
+
+
+
+
+
+
+

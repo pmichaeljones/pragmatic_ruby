@@ -28,9 +28,15 @@ class Project
 end
 
 proj1 = Project.new("New School", 100, 1000)
-puts proj1
-proj1.add_funds(700)
-puts proj1
-proj1.sub_funds(500)
-puts proj1
+proj2 = Project.new("Auditorium", 245, 1235)
+proj3 = Project.new("Sidewalk", 12, 12353)
+
+projects = [proj1, proj2, proj3]
+
+projects.each { |p| puts p }
+
+
+
+
+
 

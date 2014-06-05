@@ -24,16 +24,49 @@ class Project
   def amount_needed
     @target - @initial
   end
+end
+
+class Container
+
+  attr_reader :projects
+
+  def initialize(name)
+    @name = name
+    @projects = []
+  end
+
+  def add_project(name)
+    @projects << name
+  end
+
+
+  def project_status
+    puts "Here's the project roster:"
+    @projects.each { |p| puts p }
+  end
+
+  def add_funds(name, amount)
+    name.add_funds(amount)
+    puts "#{amount} was added to the #{name} project."
+  end
 
 end
 
+
 proj1 = Project.new("New School", 100, 1000)
-proj2 = Project.new("Auditorium", 245, 1235)
-proj3 = Project.new("Sidewalk", 12, 12353)
+proj2 = Project.new("Auditorium", 100, 1000)
+proj3 = Project.new("Sidewalk", 100, 1000)
 
-projects = [proj1, proj2, proj3]
+holder = Container.new("All Projects")
 
-projects.each { |p| puts p }
+holder.add_project(proj1)
+holder.add_project(proj2)
+holder.add_project(proj3)
+
+puts holder.projects
+
+
+
 
 
 

@@ -9,17 +9,10 @@ knuckleheads = Game.new("Knuckleheads")
 knuckleheads.add_player(player1)
 knuckleheads.add_player(player2)
 knuckleheads.add_player(player3)
-knuckleheads.play
 
-player4 = Player.new("Alvin", 123)
-player5 = Player.new("Simon", 523)
-player6 = Player.new("Theodore", 654)
+print knuckleheads.play(4)
+print knuckleheads.print_stats
 
-chipmunks = Game.new("Chipmunks")
-chipmunks.add_player(player4)
-chipmunks.add_player(player1)
-chipmunks.add_player(player6)
-chipmunks.play
 
 
 

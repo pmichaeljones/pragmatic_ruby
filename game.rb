@@ -15,11 +15,12 @@ class Game
   end
 
   def print_stats
+    puts "------Game Stats------"
     strong, wimpy = @players.partition { |player| player.strong? }
     puts "#{strong.length} Strong Players:"
     strong.each { |x| puts "#{x.name} (#{x.health})" }
     puts "---"
-    puts "#{wimpy.length} Wimpy Players:"
+    puts "#{wimpy.count} Wimpy Players:"
     wimpy.each { |x| puts "#{x.name} (#{x.health})" }
   end
 

@@ -16,22 +16,25 @@ class Game
 
   def print_stats
 
-    sorted_players = @players.sort { |player1, player2| player2.score <=> player1.score }
-
-    puts "------Game Stats------"
+        puts "----Health Stats------"
     strong, wimpy = @players.partition { |player| player.strong? }
     puts "#{strong.length} Strong Players:"
-    strong.each { |x| puts "#{x.name} (#{x.health})" }
+    strong.each { |x| puts print_name_and_health(x) }
     puts "---"
     puts "#{wimpy.count} Wimpy Players:"
-    wimpy.each { |x| puts "#{x.name} (#{x.health})" }
+    wimpy.each { |x| puts print_name_and_health(x) }
+
+    sorted_players = @players.sort # { |player1, player2| player2.score <=> player1.score }
     puts "\n------Final Results------"
     puts "#{@title} High Scores:"
     sorted_players.each do |x|
       puts "#{x.name}".ljust(20,".") + "(#{x.score})"
     end
 
+  end
 
+  def print_name_and_health(x)
+    puts "#{x.name} (#{x.health})"
   end
 
 

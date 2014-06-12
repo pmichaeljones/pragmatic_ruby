@@ -7,6 +7,10 @@ class Player
     @health = health
   end
 
+  def <=>(other)
+    other.score <=> score
+  end
+
   def w00t
     @health += 15
     puts "#{@name} got w00ted!"

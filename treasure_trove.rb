@@ -17,6 +17,10 @@ module TreasureTrove
     TREASURES << x
   end
 
-end
+  def self.random
+    TREASURES.sample
+  end
 
+
+end
 

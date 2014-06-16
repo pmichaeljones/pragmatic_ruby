@@ -1,9 +1,31 @@
 require_relative 'player'
+require_relative 'treasure_trove'
 
 describe Player do
   before do
     $stdout = StringIO.new
     @player = Player.new("larry", 125)
+
+  end
+
+  it "computes a score as a sum of its health and points" do
+
+  end
+
+  it "computes points as the sum of all treasure points" do
+    expect(@player.points).to eq(0)
+
+    @player.add_treasure(Treasure.new(:hammer, 50))
+
+    expect(@player.points).to eq(50)
+
+    @player.add_treasure(Treasure.new(:crowbar, 400))
+
+    expect(@player.points).to eq(450)
+
+    @player.add_treasure(Treasure.new(:hammer, 50))
+
+    expect(@player.points).to eq(500)
 
   end
 
@@ -18,11 +40,18 @@ describe Player do
 
 
   it "has a string representation" do
-    expect(@player.to_s).to eq("I'm Larry with a health of 125 and a score of #{@player.score}.")
+    @player.add_treasure(Treasure.new(:hammer, 50))
+    @player.add_treasure(Treasure.new(:hammer, 50))
+
+    expect(@player.to_s).to eq("I'm Larry with a health = 125, points = 100, and score = 225.")
   end
 
   it "computes a score as the sum of its health and length of name" do
-    expect(@player.score).to eq(@player.health + @player.name.length)
+    @player.add_treasure(Treasure.new(:hammer, 50))
+    @player.add_treasure(Treasure.new(:hammer, 50))
+
+    expect(@player.score).to eq(225)
+
   end
 
   it "increases health by 15 when w00ted" do

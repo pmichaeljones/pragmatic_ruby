@@ -17,7 +17,7 @@ module GameTurn
       player.w00t
     end
 
-    puts "#{player.name} found a #{treasure.name} worth #{treasure.points} points."
+    player.add_treasure(treasure)
 
   end
 

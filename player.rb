@@ -37,8 +37,6 @@ class Player
 
   end
 
-
-
   def blam
     @health -= 10
     puts "#{@name} got blammed!"
@@ -49,7 +47,7 @@ class Player
   end
 
   def score
-    @health +  + points
+    @health + points
   end
 
   def strong?

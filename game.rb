@@ -49,6 +49,13 @@ class Game
     puts "\n----Total Treasure Points-----"
     puts total_points
 
+    puts "\n-----Scores by Player--------"
+    @players.each do |x|
+      puts "\n#{x.name}'s Point Totals:"
+      x.each_found_treasure { |x| puts "#{x.points} total #{x.name} points."}
+    end
+
+
   end
 
   def print_name_and_health(x)

@@ -8,9 +8,28 @@ describe Player do
 
   end
 
-  it "computes a score as a sum of its health and points" do
+  it "yields each found treasure and its total points" do
+  @player.add_treasure(Treasure.new(:skillet, 100))
+  @player.add_treasure(Treasure.new(:skillet, 100))
+  @player.add_treasure(Treasure.new(:hammer, 50))
+  @player.add_treasure(Treasure.new(:bottle, 5))
+  @player.add_treasure(Treasure.new(:bottle, 5))
+  @player.add_treasure(Treasure.new(:bottle, 5))
+  @player.add_treasure(Treasure.new(:bottle, 5))
+  @player.add_treasure(Treasure.new(:bottle, 5))
 
+  yielded = []
+  @player.each_found_treasure do |treasure|
+    yielded << treasure
   end
+
+  yielded.should == [
+    Treasure.new(:skillet, 200),
+    Treasure.new(:hammer, 50),
+    Treasure.new(:bottle, 25)
+  ]
+
+end
 
   it "computes points as the sum of all treasure points" do
     expect(@player.points).to eq(0)

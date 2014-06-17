@@ -57,10 +57,10 @@ class Game
     puts "#{wimpy.count} Wimpy Players:"
     wimpy.each { |x| puts print_name_and_health(x) }
 
-    sorted_players = @players.sort # { |player1, player2| player2.score <=> player1.score }
+    #sorted_players = @players.sort # { |player1, player2| player2.score <=> player1.score }
     puts "\n------Final Results------"
     puts "#{@title} High Scores:"
-    sorted_players.each do |x|
+    @players.sort.each do |x|
       puts "#{x.name}".ljust(20,".") + "(#{x.score})"
     end
 

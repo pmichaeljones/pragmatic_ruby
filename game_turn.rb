@@ -1,15 +1,18 @@
 require_relative 'die'
 require_relative 'treasure_trove'
+require_relative 'loaded_die'
 
 
 module GameTurn
 
   def self.take_turn(player)
     die = Die.new
+    treasure = TreasureTrove.random
+
 
     puts "\n-----------\nIt's #{player.name}'s turn:"
 
-    number = die.number
+    number = die.roll
 
     case number
     when 1, 2
@@ -23,7 +26,6 @@ module GameTurn
       player.w00t
     end
 
-    treasure = TreasureTrove.random
     player.add_treasure(treasure)
 
   end
